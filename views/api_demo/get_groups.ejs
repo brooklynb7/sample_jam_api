@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include ../head.ejs %>
+		<%- include ../script.ejs %>
+		<style type="text/css">
+			.sample_content .dl-horizontal{
+				margin: 0px;
+			}
+			.sample_content .dl-horizontal dt{
+				width: 90px;
+			}
+			.sample_content .dl-horizontal dd {
+				margin-left: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>Get groups -- /api/v1/members/groups</h3>
+		<div class='sample_json'>
+			<pre><%=JSON.stringify(result,null, 4) %></pre>
+		</div>
+		<div class='sample_content'>
+			<%for(var i=0; i<result.length; i++) {%>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4><span class="label label-<%= (result[i]['acl']=='private' ? 'danger' : 'primary') %>"><%= result[i]['acl'] %></span> <%= result[i]['name'] %></h4>
+						<p class="text-muted"><%= result[i]['description'] %></p>
+					</div>
+					<div class="panel-body">
+						<dl class="dl-horizontal">
+							<dt>Group id:</dt>
+							<dd><%= result[i]['id'] %></dd>	
+							<dt>Scope:</dt>
+							<dd><%= result[i]['scope'] %></dd>	
+							<dt>Create time:</dt>
+							<dd><%= new Date(result[i]['created-at']).Format("yyyy-MM-dd hh:mm:ss") %></dd>
+							<dt>Last activity:</dt>
+							<dd><%= new Date(result[i]['last-activity']*1000).Format("yyyy-MM-dd hh:mm:ss") %></dd>			
+						</dl>
+					</div>
+				</div>
+			<%}%>
+		</div>
+	</body>
+</html>

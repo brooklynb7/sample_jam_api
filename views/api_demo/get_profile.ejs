@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include ../head.ejs %>
+		<%- include ../script.ejs %>
+	</head>
+	<body>
+		<h3>Get user profile -- /api/v1/members</h3>
+		<div class='sample_json'>			
+			<pre><%=JSON.stringify(result,null, 4) %></pre>
+		</div>
+		<div class='sample_content'>
+			
+			<div>
+				<img src="<%=result.photo %>" class="img-thumbnail">
+			</div>
+			<div>
+				User ID: <%=result.id %>
+			</div>
+			<div>
+				First Name: <%=result["first-name"] %>
+			</div>
+			<div>
+				Last Name: <%=result["last-name"] %>
+			</div>
+			<div>
+				Create time: <%= new Date(result["created-at"]*1000).Format("yyyy-MM-dd hh:mm:ss") %>
+			</div>
+		</div>
+	</body>
+</html>

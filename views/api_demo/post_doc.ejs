@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include ../head.ejs %>
+		<%- include ../script.ejs %>
+	</head>
+	<body>
+		<h3>Upload document -- /api/v1/feed/doc</h3>
+		<div style='margin-bottom:10px;'>
+			<form class="form-inline" style="margin-top: 10px;" 
+				method="POST" enctype="multipart/form-data" action="/postDoc" target="fileFrame" role="form">
+				<div style='margin-bottom:5px;'>Step 1: <input type="file" id='uploadFile' name="data" style="display:inline-block"/></div>
+				<div>Step 2: <button type="submit" id='submitFile' class="btn btn-primary btn-xs">Upload</button></div>
+			</form>
+		</div>
+		
+		<div class='sample_json'>
+			<div>Response for posting file from hidden iframe</div>
+			<pre id='fileResponse'></pre>
+			<iframe id="fileFrame" name='fileFrame' style="width:0px;height:0px;border:0px"></iframe>
+		</div>
+		<div class='sample_content'>
+
+		</div>
+		<script type="text/javascript">
+			$("#submitFile").on("click", function(event){				
+				if(!$("#uploadFile").val()){
+					alert("Please select a file first!")
+					return false;
+				}
+			});
+
+			$("#fileFrame").on("load", function () {
+				$("#fileResponse").html(JSON.stringify(JSON.parse($($(this).contents()[0]).find('body').text()),null, 4));
+			});
+		</script>
+	</body>
+</html>

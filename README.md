@@ -1,4 +1,2 @@
-sample_jam_api
-==============
-
-jam integration
+rds_qualification
+=================

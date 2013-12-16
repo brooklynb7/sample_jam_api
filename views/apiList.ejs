@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include head.ejs %>
+		<%- include script.ejs %>
+	</head>
+	<body>
+		
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Jam API 3.0</h2></div>
+			<table class="table table-hover">
+				<thead>
+					<th>Demo</th>
+					<th>Name</th>
+					<th>Method</th>
+					<th>Resource</th>
+					<th>Description</th>
+				</thead>
+				<tr>
+					<td><a href='/api_sample/getProfile' target="_blank">Sample</a></td>
+					<td>Get user profile</td>
+					<td>GET</td>
+					<td>/api/v1/members</td>
+					<td>Retrieves the profile infomation for the currently logged in user</td>
+				</tr>
+				<tr>
+					<td><a href='/api_sample/getGroups' target="_blank">Sample</a></td>
+					<td>Get groups list</td>
+					<td>GET</td>
+					<td>/api/v1/members/groups</td>
+					<td>Retrieves the list of groups that the currently authenticated user is following</td>
+				</tr>
+				<tr>
+					<td><a href='/api_sample/getFeedlist' target="_blank">Sample</a></td>
+					<td>Get feeds list</td>
+					<td>GET</td>
+					<td>/api/v1/feed/list</td>
+					<td>Retrieves the feeds from server</td>
+				</tr>
+				<tr>
+					<td><a href='/api_sample/postDoc' target="_blank">Sample</a></td>
+					<td>Upload document</td>
+					<td>POST</td>
+					<td>/api/v1/feed/doc</td>
+					<td>Upload a document to feed</td>
+				</tr>
+			</table>
+		</div>
+		<!-- <ul>
+			<li><a href='/getFeedlist' target="_blank">Get Feed list</a></li>
+			<li><a href='/upload' target="_blank">Upload file</a></li>
+		</ul> -->
+	</body>
+</html>

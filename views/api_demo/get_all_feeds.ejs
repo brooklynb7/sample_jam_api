@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include ../head.ejs %>
+		<%- include ../script.ejs %>
+	</head>
+	<body>
+		<h3>Get feeds -- /api/v1/feed/list</h3>
+		<div class='sample_json'>
+			<pre><%=JSON.stringify(result,null, 4) %></pre>
+		</div>
+		<div class='sample_content'>
+			<dl class='dl-horizontal'>
+			<% for(var i=0; i<result.length; i++) {%>
+				<dt>[<%= new Date(result[i]['created-at']*1000).Format("yyyy-MM-dd hh:mm:ss") %>]:</dt>
+				<dd><%=result[i]['creator-name']%> <%= result[i]['action']%></dd>
+			<%}%>			
+			</dl>
+		</div>
+	</body>
+</html>
